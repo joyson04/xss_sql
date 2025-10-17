@@ -1,3 +1,7 @@
+
+<img width="1920" height="992" alt="22" src="https://github.com/user-attachments/assets/e51da25b-5444-4b8f-9779-ade3cf6a9e6b" />
+
+
 # Node.js + MySQL Security Demo
 
 This small demo shows examples of SQL Injection and Cross-Site Scripting (XSS) vulnerabilities and how to fix them. It intentionally includes both vulnerable and fixed routes for learning.
@@ -43,13 +47,6 @@ Vulnerable Demo App (Node.js + MySQL)
 
 This small app intentionally contains SQL injection and XSS vulnerabilities for learning and local testing only. Do NOT deploy to production.
 
-Files:
-- `app.js` - Express server with routes for home, register, login, profile.
-- `views/` - EJS templates.
-- `public/style.css` - basic styles.
-- `db.sql` - MySQL schema and example data.
-- `package.json` - dependencies.
-
 Quick start (Windows PowerShell):
 
 1. Create the MySQL database and table:
@@ -71,3 +68,10 @@ Vulnerabilities and remediation notes:
 - XSS: `profile.ejs` renders `bio` without escaping. Escape output or sanitize input. Use templating auto-escaping and Content Security Policy (CSP).
 
 Use this project for local testing only.
+
+<img width="1920" height="1032" alt="Screenshot 2025-10-17 204749" src="https://github.com/user-attachments/assets/8339563d-6004-4b88-a9d7-7fa8008c1f91" />
+
+
+
+
+
