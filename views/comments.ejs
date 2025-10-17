@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Comments</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="container py-4">
+      <h1>Comments - <%= vuln ? 'Vulnerable (raw HTML)' : 'Fixed (escaped)' %></h1>
+
+      <a class="btn btn-secondary mb-3" href="/">Back</a>
+
+      <div class="mb-4">
+        <% rows.forEach(c => { %>
+          <div class="card mb-2">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted"><%= c.username %> <small class="text-muted">@ <%= c.created_at %></small></h6>
+              <% if (vuln) { %>
+                <!-- Dangerous: rendering raw comment -->
+                <div><%- c.comment %></div>
+              <% } else { %>
+                <!-- Safe: escape output -->
+                <div><%= c.comment %></div>
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

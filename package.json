@@ -1,0 +1,21 @@
+{
+  "name": "node-mysql-security-demo",
+  "version": "1.0.0",
+  "description": "Small demo showing SQL injection and XSS vulnerable vs fixed examples (Node.js + MySQL)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "helmet": "^7.0.0",
+    "http": "^0.0.1-security",
+    "mysql2": "^3.3.0"
+  }
+}

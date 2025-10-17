@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security Demo - 3D Interactive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./public/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="background-3d">
+      <canvas id="canvas3d"></canvas>
+    </div>
+
+    <div class="container">
+      <header class="header">
+        <div class="logo-3d">
+          <div class="logo-cube">
+            <div class="cube-face front">SEC</div>
+            <div class="cube-face back">3D</div>
+            <div class="cube-face left">DEV</div>
+            <div class="cube-face right">OPS</div>
+            <div class="cube-face top">💻</div>
+            <div class="cube-face bottom">🔒</div>
+          </div>
+        </div>
+        <h1 class="title">Security Vulnerability Demo</h1>
+        <p class="subtitle">Interactive 3D Testing Environment</p>
+      </header>
+
+      <div class="cards-grid">
+        <div class="card-3d sql-card">
+          <div class="card-inner">
+            <div class="card-glow"></div>
+            <div class="card-header">
+              <div class="icon-3d">
+                <div class="icon-cube database-icon">
+                  <div class="cube-side front">🗄️</div>
+                  <div class="cube-side back">🗄️</div>
+                  <div class="cube-side left"></div>
+                  <div class="cube-side right"></div>
+                  <div class="cube-side top"></div>
+                  <div class="cube-side bottom"></div>
+                </div>
+              </div>
+              <h2>SQL Injection</h2>
+              <span class="badge demo-badge">DEMO</span>
+            </div>
+
+            <p class="card-description">Test database query vulnerabilities</p>
+            <div class="test-input">Try: <code>' OR '1'='1</code></div>
+
+            <div class="test-section vulnerable">
+              <div class="section-label">
+                <span class="status-dot red"></span>
+                <span>Vulnerable Version</span>
+              </div>
+              <form action="/users/vuln" class="form-3d">
+                <input name="q" class="input-3d" placeholder="Enter username..." type="text">
+                <button class="btn-3d btn-danger" type="submit">
+                  <span class="btn-text">Test Vulnerability</span>
+                  <span class="btn-shine"></span>
+                </button>
+              </form>
+              <div class="warning-tag">⚠️ Unsafe query construction</div>
+            </div>
+
+            <div class="test-section fixed">
+              <div class="section-label">
+                <span class="status-dot green"></span>
+                <span>Secure Version</span>
+              </div>
+              <form action="/users/fixed" class="form-3d">
+                <input name="q" class="input-3d" placeholder="Enter username..." type="text">
+                <button class="btn-3d btn-success" type="submit">
+                  <span class="btn-text">Test Secure Query</span>
+                  <span class="btn-shine"></span>
+                </button>
+              </form>
+              <div class="success-tag">✓ Parameterized queries</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d xss-card">
+          <div class="card-inner">
+            <div class="card-glow"></div>
+            <div class="card-header">
+              <div class="icon-3d">
+                <div class="icon-cube code-icon">
+                  <div class="cube-side front">⚡</div>
+                  <div class="cube-side back">⚡</div>
+                  <div class="cube-side left"></div>
+                  <div class="cube-side right"></div>
+                  <div class="cube-side top"></div>
+                  <div class="cube-side bottom"></div>
+                </div>
+              </div>
+              <h2>Cross-Site Scripting</h2>
+              <span class="badge demo-badge">DEMO</span>
+            </div>
+
+            <p class="card-description">Test XSS attack vectors</p>
+            <div class="test-input">Try: <code>&lt;script&gt;alert(1)&lt;/script&gt;</code></div>
+
+            <div class="test-section vulnerable">
+              <div class="section-label">
+                <span class="status-dot red"></span>
+                <span>Vulnerable Version</span>
+              </div>
+              <form action="/comments/vuln" method="post" class="form-3d">
+                <input name="username" class="input-3d" placeholder="Your name..." type="text">
+                <textarea name="comment" class="input-3d textarea-3d" placeholder="Enter your comment..."></textarea>
+                <div class="button-group">
+                  <button class="btn-3d btn-danger" type="submit">
+                    <span class="btn-text">Post (Vulnerable)</span>
+                    <span class="btn-shine"></span>
+                  </button>
+                  <a class="btn-3d btn-secondary" href="/comments?vuln=0">
+                    <span class="btn-text">View Secure</span>
+                    <span class="btn-shine"></span>
+                  </a>
+                </div>
+              </form>
+              <div class="warning-tag">⚠️ No output encoding</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="warning-banner">
+          <div class="warning-icon">⚠️</div>
+          <p>This project intentionally includes insecure code for educational purposes. <strong>DO NOT</strong> deploy to production environments.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
