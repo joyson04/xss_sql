@@ -1,0 +1,26 @@
+FROM node:alpine3.22
+
+# Create non-root user
+RUN addgroup -g 1001 appgroup && adduser -D -u 1001 -G appgroup appuser
+
+# Set app directory
+ENV APP=/usr/share/app
+WORKDIR ${APP}
+
+# Copy package.json and install deps
+COPY package*.json ./
+RUN npm install && npm cache clean --force
+
+# Copy source code
+COPY . .
+
+# Fix permissions
+RUN chown -R appuser:appgroup ${APP}
+
+EXPOSE 4000
+
+# Switch to non-root user
+USER appuser
+
+# Start backend
+CMD ["node", "app.js"]
